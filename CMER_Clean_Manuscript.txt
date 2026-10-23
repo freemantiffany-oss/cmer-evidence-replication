@@ -1,0 +1,237 @@
+  CMER: Crowdsourced Replication of Machine Learning
+           Marketing Experience and Trust
+Perspectives manuscript | MARK-0NBPHCOSS6
+Author: Tiffany Freeman | LXN Solutions, Inc.
+Abstract
+Machine learning (ML) increasingly shapes digital marketing, yet clicks and conversion do not establish user experience
+(UX), trust, or causal incrementality. This critical integrative perspective synthesizes published work on personalization,
+disclosure, privacy, and consumer autonomy, treating Generation Z as a heterogeneous population. We propose the
+Experience–Trust–Outcome (ETO) framework and the Crowdsourced Marketing Evidence and Replication (CMER)
+protocol. CMER defines a versioned registry, guarded status transitions, independent verification, graded evidence
+badges, estimands, and precommitted synthesis gates. Synthetic exemplars show how apparently similar claims can
+differ in denominators and attribution windows. A prospective evaluation protocol specifies reproducibility and fairness
+endpoints. This methodological contribution proposes auditable infrastructure; it reports no new participant outcomes or
+evidence that crowdsourcing improves reliability.
+
+Keywords: machine learning; digital marketing; replication; user experience; trust; evidence registry; incrementality;
+Generation Z
+
+
+1. Introduction and positioning
+Artificial intelligence (AI) supports recommendation, predictive targeting, conversational service, and adaptive content.
+Reported engagement gains cannot be interpreted as causal marketing lift or user benefit without explicit assignment,
+denominators, attribution windows, and measures of agency and accessibility [1, 3–16]. This contribution differs from the
+published review by Kaponis et al. [1] by proposing a prospective verification infrastructure, not a completed systematic
+review or empirical trial. Natural language processing (NLP) applications such as chatbots are eligible claim families.
+
+Practical decisions include allocating retargeting spend by randomized incremental lift rather than last-click credit;
+retaining human escalation when chatbots reduce contact time but fail to resolve cases; and evaluating personalization
+when conversion improves while consent comprehension deteriorates.
+
+
+2. Questions, scope, and specialist audiences
+RQ1: Which claims are reproducible estimands? RQ2: How do estimates vary across designs and contexts? RQ3: Does
+structured replication capture null and negative results? RQ4: Which safeguards protect confidential data? RQ5: Which
+UX differences persist across adult age groups? Intended expertise: marketing measurement, causal inference,
+human-computer interaction, privacy engineering, research ethics, and reproducibility engineering.
+
+Claim boundary: CMER does not demonstrate a causal marketing effect, generational preference, successful external
+replication, public repository deposit, or completed human-subject pilot. Its protocol complements but does not replace
+preregistration, institutional review, systematic-review reporting, or accessibility evaluation.
+
+
+3. Registry and legal state machine
+The machine-readable schema and guard dictionary are provided as CMER_registry_schema.json and
+CMER_guard_dictionary.json. Each claim record captures provenance, intervention, comparator, outcome, estimand,
+denominator, attribution window, assignment, risk of bias, verification badge, SHA-256, and immutable transition history.
+Only the following guarded transitions are legal:
+
+G01: proposed to underway. Ethics, COI, eligibility, estimand frozen.
+
+G02: underway to results_deposited. Packet complete; signed hashes, denominator and window.
+
+G03: results_deposited to screened. Two independent screeners and adjudication.
+
+G04: screened to independently_checked. V1-V7 pass; independent rerun; Gold/Silver.
+
+G05: screened to not_independently_verifiable. Reproducibility missing after remediation.
+
+G06: independently_checked to synthesis_eligible. Gold/Silver; non-high RoB; harmonization assessed.
+
+G07: ANY_EXCEPT_WITHDRAWN to withdrawn. Signed withdrawal/fraud decision; appeal recorded.
+
+G08: not_independently_verifiable to screened. New version; renewed dual screening.
+
+Figure 1 is supplied as a separate vector PDF with accompanying alt text. A JSON Schema validates record fields; a
+separate guard validator checks transition semantics. A valid schema alone does not prove scientific verification.
+
+
+4. Methods: packets, screening, verification, synthesis
+
+4.1 Contributor independence and threat control
+Contributors sign records through institutional identity or cryptographic signing; institutional claims require two
+independent reviewers. Repository commits, source identifiers, signed artifact hashes, and conflicts of interest are
+logged. Fabrication or duplicate uploads trigger content fingerprint review; spoofing triggers identity challenge; selective
+reporting triggers preregistration comparison; denominator manipulation triggers raw-unit reconciliation; coordinated
+influence triggers reviewer-network and duplicate-pattern audit. Sanctions escalate from correction request, to
+suspension with public reason code, to permanent exclusion following documented adjudication; appeals are
+independently reviewed within 30 days. No reviewer may assess their own contribution.
+
+
+4.2 Claim sampling and bias assessment
+A prospective search would cover Scopus, Web of Science, ACM Digital Library, and Business Source Complete
+(2015–2026), with exact executable database queries frozen before use. Dual screeners record
+include/exclude/uncertain and reason codes. Preferred Reporting Items for Systematic Reviews and Meta-Analyses
+(PRISMA) [2] informs the discovery flow, without redefining this Perspectives paper as a completed systematic review.
+Randomized trials use the revised Cochrane risk-of-bias tool (RoB 2) [19]; nonrandomized intervention studies use Risk
+Of Bias In Non-randomized Studies of Interventions (ROBINS-I) [20]. Twenty-record calibration targets Cohen kappa at
+least 0.70; actual calibration remains to be performed.
+
+
+4.3 Replication packet and Outcome Data Dictionary
+Required fields include registered question, study setting and dates, audience and sampling frame, intervention and
+comparator, assignment mechanism, estimand (ITT, ATE, ATT, incremental lift, or associational difference), primary
+outcome ID, observation start/end, attribution window (1, 7, 14, 30, 90 or custom days), numerator where relevant,
+positive denominator and unit, sample size, exclusions, missing-data plan, model, point estimate and uncertainty,
+preregistration/deviations, consent and ethics, data access, code, environment, funding and conflicts. The filled synthetic
+cover sheet, outcome dictionary and coder handbook are separate supplements. The dictionary specifies instruments,
+scales, timing, denominators and invalid proxies; seven coder anchors address common disambiguations.
+
+
+4.4 Verification and badges
+V1: signed identity; V2: source identifier; V3: preregistration/deviations; V4: denominator, assignment and window; V5:
+code and README; V6: locked environment/enclave ticket and checksums; V7: independent recomputation of estimate
+and interval within prespecified tolerance. Every item must pass before a verified status. Gold requires independently
+reproducible code and data; Silver requires independently attested, checksum-logged enclave rerun; Bronze is
+
+documentation only. Bronze and Not Independently Verifiable (N.I.V.) records remain map-only, not pooled. Synthetic
+demonstration outputs must not be labeled Gold or Silver.
+
+
+4.5 Harmonization and synthesis
+H(population, treatment, outcome, estimand, window) = 1 only when all five gates pass: adult eligibility and at least 80%
+age-band overlap; same intervention/comparator and disclosure policy; identical outcome construct and denominator
+unit; same estimand and assignment class; and window difference no more than 1 day for windows up to 7 days, 3 days
+for 8–30 days, or 10% beyond 30 days. Pooling requires H=1, at least three independent Gold/Silver estimates, no high
+risk of bias, and I-squared at most 50% without qualitative incompatibility. Otherwise use structured narrative or
+evidence-map mode; report tau-squared, exclusions, effect intervals, and independent reproduction status. These are
+proposed conservative design thresholds, not empirically validated constants.
+
+Example: 40 purchases among 1,000 randomized users within seven days and 60 purchases per 1,200 impressions
+within 30 days cannot be pooled: the denominator unit and window differ. Do retain original denominators; do align from
+permissible raw data; do report null outcomes. Do not treat impressions as unique users; do not proportionally rescale
+30-day conversion to seven days; do not pool ITT with observational last-click association.
+
+
+4.6 Adult Generation Z UX substudy
+Prospective strata are ages 18–27, 28–44 and 45–64. Preregister quotas, randomized or AB/BA counterbalanced
+assignment, device/accessibility strata, exclusions and item wording. Primary outcomes include task completion, time,
+errors and System Usability Scale (SUS) [17]; secondary measures include UMUX-Lite [18] and the 12-item Trust in Automated Systems Scale developed by Jian, Bisantz, and Drury [22] (seven-point response format); transparency comprehension is measured separately with preregistered items, not misrepresented as a validated scale. Audit to Web Content Accessibility Guidelines
+(WCAG) 2.2 Level AA [21]. Illustrative power calculation for standardized d=0.35, two-sided alpha=0.05, 80% power
+gives about 128 per arm before attrition; inflate to 151 per arm for 15% attrition. No study has been executed.
+
+
+5. Ethics, privacy and limitations
+Use minimized metadata, signed code and synthetic examples by default. Proprietary data require lawful access,
+non-vendor attestation, controlled enclave execution and logged hashes. Human-subject research requires applicable
+consent and review before recruitment. Vendor-funded studies cannot self-verify; correction, appeal, anti-retaliation, and
+jurisdiction-specific retention rules must be documented. Recruitment bias is mitigated by disclosed sampling frames;
+outcome inconsistency by dictionary validation; fraud by immutable audit artifacts; confidentiality by enclaves; selective
+reporting by preregistration. Operational metrics include packet completeness, independent rerun success, reviewer
+agreement, time to verification, and null-result capture.
+
+
+6. Illustrative records and reproducibility
+Two synthetic records and a completed cover sheet accompany this manuscript. They reference published research
+topics for illustration but their invented counts and effect estimates are not findings of those publications. The
+repository-ready minimal reproducible example (MRE) generates a synthetic two-arm intent-to-treat difference and
+checksum. Local execution and schema validation do not substitute for an externally hosted public repository, DOI, or
+independent third-party verification.
+
+
+7. Conclusion
+CMER offers a prospective, auditable path from marketing claims to independently checked evidence. Separating causal
+incrementality from attribution and experiential outcomes from click counts can improve the quality of marketing
+decisions. Its scientific value remains conditional on actual adoption, independently reproduced replications, and
+transparent reporting of failures.
+
+Declarations
+Author: Tiffany Freeman
+Affiliation: LXN Solutions, Inc.
+Funding: This research received no external funding.
+CRediT author contributions: Tiffany Freeman - Conceptualization; Writing - original draft; Writing - review and editing. Other roles are not claimed.
+Competing interests: The author declares no competing interests.
+Ethics and consent: This conceptual and methodological manuscript reports no newly recruited human participants or newly collected participant data. The accompanying reproducibility example uses synthetic data only; no human-subject approval or consent was required for that example. Any future empirical research must undergo applicable ethics review and obtain required consent before recruitment or data collection.
+Data and code availability: The schema, guard dictionary, illustrative records, cover sheet, dictionary, handbook, validator, and synthetic minimal reproducible example are prepared for publication. Public GitHub repository URL: [PENDING PUBLICATION]. Persistent archive DOI: [PENDING ZENODO RELEASE]. No public deposit is claimed at this stage.
+AI assistance: Generative AI assisted with drafting and formatting; the author remains responsible for factual accuracy, references, and final submission.
+
+
+References
+[1] Kaponis, A., Maragoudakis, M., & Sofianos, K. C. (2025). Enhancing user experiences in digital marketing through machine learning:
+Cases, trends, and challenges. Computers, 14(6), 211. https://doi.org/10.3390/computers14060211
+
+[2] Page, M. J., McKenzie, J. E., Bossuyt, P. M., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic
+reviews. BMJ, 372, n71. https://doi.org/10.1136/bmj.n71
+
+[3] Teepapal, T. (2025). AI-driven personalization: Unraveling consumer perceptions in social media engagement. Computers in Human
+Behavior, 165, 108549. https://doi.org/10.1016/j.chb.2024.108549
+
+[4] McKee, K. M., Dahl, A. J., & Peltier, J. W. (2024). Gen Z’s personalization paradoxes: A privacy calculus examination of digital
+personalization and brand behaviors. Journal of Consumer Behaviour, 23(2), 405–422. https://doi.org/10.1002/cb.2199
+
+[5] Saha, P., Sengupta, A., & Gupta, P. (2024). Influence of personality traits on generation Z consumers’ click- through intentions towards
+personalized advertisements: A mixed-methods study. Heliyon, 10(15), e34559. https://doi.org/10.1016/j.heliyon.2024.e34559
+
+[6] Shin, W., & Kim, E. (2025). Young adults’ acceptance of data-driven personalized advertising: Privacy and Trust Equilibrium (PATE)
+model. Young Consumers, 26(2), 189–206. https://doi.org/10.1108/YC-06-2024-2105
+
+[7] Lefkeli, D., Karatas, M., & Gürhan-Canli, Z. (2024). Sharing information with AI (versus a human) impairs brand trust: The role of
+audience size inferences and sense of exploitation. International Journal of Research in Marketing, 41(1), 138–155.
+https://doi.org/10.1016/j.ijresmar.2023.08.011
+
+[8] Prasanna, A., & Kushwaha, B. P. (2026). Transforming marketing landscapes: A systematic literature review of generative AI using the
+TCCM model framework. Management Review Quarterly, 76, 421–455. Published online January 2025.
+https://doi.org/10.1007/s11301-025-00486-9
+
+[9] Borimnejad, H., & Borimnejad, V. (2026). Emerging trends challenges and research opportunities in artificial intelligence applications in
+marketing. Discover Artificial Intelligence, 6, article 9. Published online December 2025. https://doi.org/10.1007/s44163-025-00705-y
+
+[10] Hollebeek, L. D., et al. (2024). Engaging consumers through artificially intelligent technologies: Systematic review, conceptual model,
+and further research. Psychology & Marketing, 41(4), 880–898. https://doi.org/10.1002/mar.21957
+
+[11] Peruchini, M., da Silva, G. M., & Teixeira, J. M. (2024). Between artificial intelligence and customer experience: A literature review on
+the intersection. Discover Artificial Intelligence, 4, Article 4. https://doi.org/10.1007/s44163-024-00105-8
+
+[12] Sahut, J.-M., & Laroche, M. (2025). Using artificial intelligence (AI) to enhance customer experience and to develop strategic
+marketing: An integrative synthesis. Computers in Human Behavior, 170, 108684. https://doi.org/10.1016/j.chb.2025.108684
+
+[13] Timimi, H., Baaddi, M., & Bennouna, A. (2025). Impact of artificial intelligence on the personalization of the customer experience: A
+systematic literature review. Multidisciplinary Reviews, 8(7), e2025224. https://doi.org/10.31893/multirev.2025224
+
+[14] Li, X., Liu, H., Zhou, T., Hu, C., & Ramayah, T. (2026). Generative artificial intelligence heuristic cues, trust and continuous intention of
+CBeC platform and the moderating role of information overload. Scientific Reports, 16, 3161. https://doi.org/10.1038/s41598-025-32935-6
+
+[15] Ye, et al. (2026). How consumer attention shapes personalized experiences in generative AI products: A configurational perspective.
+International Journal of Consumer Studies. https://doi.org/10.1111/ijcs.70199
+
+[16] Peter, R., Roshith, V., Lawrence, S., Mona, A. E., Narayanan, K. B., & Yusaira, F. (2025). Gen AI–Gen Z: Understanding Gen Z’s
+emotional responses and brand experiences with Gen AI-driven, hyper-personalized advertising. Frontiers in Communication, 10, 1554551.
+https://doi.org/10.3389/fcomm.2025.1554551
+
+[17] Brooke, J. (1996). SUS: A quick and dirty usability scale. In Usability Evaluation in Industry.
+
+[18] Lewis, J. R., Utesch, B. S., & Maher, D. E. (2013). UMUX-LITE: When there is no time for the SUS. Proceedings of CHI 2013,
+2099–2102. https://doi.org/10.1145/2470654.2481287
+
+[19] Sterne, J. A. C., et al. (2019). RoB 2: A revised tool for assessing risk of bias in randomised trials. BMJ, 366, l4898.
+https://doi.org/10.1136/bmj.l4898
+
+[20] Sterne, J. A. C., et al. (2016). ROBINS-I: A tool for assessing risk of bias in non-randomised studies of interventions. BMJ, 355, i4919.
+https://doi.org/10.1136/bmj.i4919
+
+[21] World Wide Web Consortium (W3C). (2023). Web Content Accessibility Guidelines (WCAG) 2.2. https://www.w3.org/TR/WCAG22/
+
+
+
+
+[22] Jian, J.-Y., Bisantz, A. M., & Drury, C. G. (2000). Foundations for an empirically determined scale of trust in automated systems. International Journal of Cognitive Ergonomics, 4(1), 53-71. https://doi.org/10.1207/S15327566IJCE0401_04

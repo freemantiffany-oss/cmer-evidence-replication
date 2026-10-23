@@ -1,0 +1,22 @@
+Validator exit: 0
+PASS CMER_illustrative_record_01.json
+PASS CMER_illustrative_record_02.json
+
+MRE exit: 0
+{
+  "illustrative_only": true,
+  "estimand": "ITT",
+  "window": "7d",
+  "denominator_unit": "eligible_randomized_users",
+  "n_by_arm": {
+    "control": 100,
+    "treatment": 100
+  },
+  "rates": {
+    "control": 0.05,
+    "treatment": 0.07
+  },
+  "difference": 0.020000000000000004,
+  "source_sha256": "486f41500985a5011ef057862673bba5011f2e33ae241c3a95c58b6a85b3e1a7",
+  "verification": "synthetic independent recomputation; NOT a third-party attestation"
+}

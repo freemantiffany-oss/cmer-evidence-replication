@@ -1,0 +1,11 @@
+outcome_id,definition,scale,instrument,timing,denominator,proxy_caveat
+task_success,Completed preregistered task,binary 0/1,task completion log,immediately after task,eligible assigned tasks,clicks; invalid proxy
+conversion_7d,At least one purchase within 7 days,binary 0/1,transaction log,7 days after assignment,unique eligible randomized users,impressions; invalid proxy
+resolution,Issue resolved by prespecified rule,binary 0/1,case audit,at closure,assigned support cases,chat closed; invalid proxy
+sus,System Usability Scale,0-100,10-item SUS questionnaire,after tasks,valid respondent surveys,star rating; invalid proxy
+umux_lite,Usability Metric for User Experience - Lite,instrument-specific scoring,two-item UMUX-Lite questionnaire,after tasks,valid respondent surveys,single satisfaction item; invalid proxy
+trust,Predeclared trust instrument,instrument-specific Likert sum/mean,published instrument/version required,after tasks,valid respondent surveys,willingness to buy; invalid proxy
+agency,Understanding and control over tracking,prespecified score; report items,comprehension questions and controls,after tasks,eligible consented respondents,consent button click; invalid proxy
+time_on_task,Elapsed task time,"seconds, nonnegative",timestamped task log,task start to completion/timeout,all started tasks,page dwell time; invalid proxy
+escalation,Human escalation requested or triggered,binary 0/1,support routing log,within issue episode,assigned support cases,unanswered ticket; invalid proxy
+TRUST_JIAN12,Trust in automated systems; distinct from transparency comprehension,7-point response per item; scoring per instrument instructions,"Jian et al. (2000), 12-item Trust in Automated Systems Scale",Post-task,Consented participants completing instrument,

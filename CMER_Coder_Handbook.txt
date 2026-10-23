@@ -1,0 +1,21 @@
+CMER OUTCOME CODER HANDBOOK | Version 1.0 | ILLUSTRATIVE RULES
+
+1. Record source wording verbatim and retain provenance; do not infer missing values.
+2. Select outcome_id only when definition, unit, timing and denominator match dictionary.
+3. Record arm-specific numerator/denominator for binary outcomes. Record scoring, reverse coding and missing item rules for instruments.
+4. A rate over impressions is not a rate over unique randomized users.
+5. ITT uses assigned participants, including noncompliers; ATT targets treated participants.
+6. Relative lift = (treatment-control)/control; percentage-point difference = treatment-control for rates.
+7. Use 'unknown' and request clarification rather than silently converting nonmatching constructs.
+8. Instrument use requires exact version and validated source; do not claim validated trust items without naming the instrument.
+
+ANCHOR A: 40 purchases among 1,000 randomized users at 7 days => conversion_7d, denominator=1000, numerator=40.
+ANCHOR B: 60 purchases per 1,200 ad impressions at 30 days => NOT conversion_7d; code incompatible window/unit.
+ANCHOR C: 70% chatbot sessions closed => NOT resolution unless issue-resolution adjudication documented.
+ANCHOR D: Five-star satisfaction score => NOT SUS; SUS requires 10-item standardized scoring.
+ANCHOR E: +10% relative conversion lift at baseline 5% => 5.5% treatment rate, +0.5 percentage points, not +10 points.
+ANCHOR F: Treated-only comparison with unmeasured confounding => associational_difference; do not label ITT.
+ANCHOR G: Trust measured by ad hoc single item => trust proxy only, not validated multi-item trust instrument.
+
+DISAGREEMENT: Two blinded coders code independently; log coder IDs and reason; adjudicator resolves and versions record.
+QUALITY: Pilot 20 records, calculate Cohen kappa; retrain and rerun calibration if kappa < 0.70. No achieved pilot score claimed.

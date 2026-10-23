@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "legal_transitions": [
+    {
+      "code": "G01",
+      "source": "proposed",
+      "target": "underway",
+      "guard": "Ethics, COI, eligibility, estimand frozen"
+    },
+    {
+      "code": "G02",
+      "source": "underway",
+      "target": "results_deposited",
+      "guard": "Packet complete; signed hashes, denominator and window"
+    },
+    {
+      "code": "G03",
+      "source": "results_deposited",
+      "target": "screened",
+      "guard": "Two independent screeners and adjudication"
+    },
+    {
+      "code": "G04",
+      "source": "screened",
+      "target": "independently_checked",
+      "guard": "V1-V7 pass; independent rerun; Gold/Silver"
+    },
+    {
+      "code": "G05",
+      "source": "screened",
+      "target": "not_independently_verifiable",
+      "guard": "Reproducibility missing after remediation"
+    },
+    {
+      "code": "G06",
+      "source": "independently_checked",
+      "target": "synthesis_eligible",
+      "guard": "Gold/Silver; non-high RoB; harmonization assessed"
+    },
+    {
+      "code": "G07",
+      "source": "ANY_EXCEPT_WITHDRAWN",
+      "target": "withdrawn",
+      "guard": "Signed withdrawal/fraud decision; appeal recorded"
+    },
+    {
+      "code": "G08",
+      "source": "not_independently_verifiable",
+      "target": "screened",
+      "guard": "New version; renewed dual screening"
+    }
+  ],
+  "enforcement": "Schema validates records; guard transitions are separately checked by validate_examples.py"
+}

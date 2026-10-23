@@ -1,0 +1,11 @@
+requirement,status,location_and_response,remaining
+AR001,Complete locally,Schema and validating records; guard dictionary; validate_examples.py,Public hosting still needed
+AR002,Complete locally,Two fully populated synthetic records and cover sheet,"Examples are illustrative, not published findings"
+AR003,Complete locally,"Outcome dictionary CSV and coder handbook TXT, 7 anchors",Author approval and instrument-specific validation pending
+AR004,Partial / external action,Repository-ready tree and executable synthetic MRE,Author must publish repository and supply actual DOI/URL
+AR005,Partial,Reference cleanup and instrument/standard citations added to manuscript,External bibliographic verification still needed
+AR006,Complete in clean draft,Removed draft editorial meta-notes from manuscript body,No claims of completed empirical pilot
+AR007,Complete in clean draft,Expanded machine learning and natural language processing on first use,Check final typesetting
+AR008,Complete locally,Vector Figure 1 and alt-text file,Upload figure alongside manuscript
+AR009,Pending author,Declarations explicitly marked for completion,"Author, affiliations, funding, CRediT, COI, ethics signoff"
+AR010,Complete,Polished captions and keywords,Optional

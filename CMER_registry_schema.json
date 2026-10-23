@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/cmer/CMER_registry_schema.json",
+  "title": "CMER registry record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "version",
+    "source_doi",
+    "claim",
+    "population",
+    "intervention",
+    "comparator",
+    "outcome_id",
+    "estimand",
+    "window",
+    "window_days",
+    "denominator_unit",
+    "denominator",
+    "assignment",
+    "status",
+    "badge",
+    "risk_of_bias",
+    "artifact_sha256",
+    "created_utc",
+    "transitions"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_doi": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "population": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intervention": {
+      "type": "string",
+      "minLength": 1
+    },
+    "comparator": {
+      "type": "string",
+      "minLength": 1
+    },
+    "outcome_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "denominator_unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assignment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "created_utc": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "denominator": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "window_days": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "estimand": {
+      "enum": [
+        "ITT",
+        "ATE",
+        "ATT",
+        "incremental_lift",
+        "associational_difference"
+      ]
+    },
+    "window": {
+      "enum": [
+        "1d",
+        "7d",
+        "14d",
+        "30d",
+        "90d",
+        "custom"
+      ]
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "underway",
+        "results_deposited",
+        "screened",
+        "independently_checked",
+        "synthesis_eligible",
+        "not_independently_verifiable",
+        "withdrawn"
+      ]
+    },
+    "badge": {
+      "enum": [
+        "none",
+        "Gold",
+        "Silver",
+        "Bronze"
+      ]
+    },
+    "risk_of_bias": {
+      "enum": [
+        "low",
+        "some_concerns",
+        "high",
+        "insufficient_information"
+      ]
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "guard",
+          "from",
+          "to",
+          "actor",
+          "utc",
+          "artifact_sha256"
+        ],
+        "properties": {
+          "guard": {
+            "enum": [
+              "G01",
+              "G02",
+              "G03",
+              "G04",
+              "G05",
+              "G06",
+              "G07",
+              "G08"
+            ]
+          },
+          "from": {
+            "enum": [
+              "proposed",
+              "underway",
+              "results_deposited",
+              "screened",
+              "independently_checked",
+              "synthesis_eligible",
+              "not_independently_verifiable",
+              "withdrawn"
+            ]
+          },
+          "to": {
+            "enum": [
+              "proposed",
+              "underway",
+              "results_deposited",
+              "screened",
+              "independently_checked",
+              "synthesis_eligible",
+              "not_independently_verifiable",
+              "withdrawn"
+            ]
+          },
+          "actor": {
+            "type": "string"
+          },
+          "utc": {
+            "type": "string"
+          },
+          "artifact_sha256": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "numerator": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "effect_estimate": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "uncertainty_lower": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "uncertainty_upper": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "preregistration": {
+      "type": "string"
+    },
+    "ethics": {
+      "type": "string"
+    },
+    "coi": {
+      "type": "string"
+    },
+    "repository_commit": {
+      "type": "string"
+    },
+    "verification_report": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
